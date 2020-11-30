@@ -1,7 +1,7 @@
 require('./config/config');
-import * as express from 'express'
-import * as bodyparser from 'body-parser';
-import * as mongoose from 'mongoose';
+const express = require('express');
+const bodyparser = require('body-parser');
+const mongoose = require('mongoose');
 
 const app = express();
 
