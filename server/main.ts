@@ -1,7 +1,10 @@
+import { Mongoose } from "mongoose";
+import * as http from 'http';
+
 require('./config/config');
 const express = require('express');
 const bodyparser = require('body-parser');
-const mongoose = require('mongoose');
+const mongoose: Mongoose = require('mongoose');
 
 const app = express();
 
@@ -16,7 +19,6 @@ app.use((req, res, next) => {
     next();
 });
 
-
 app.use(require('./routes/animes'));
 
 mongoose.connect(process.env.URLDB, {useNewUrlParser: true, useUnifiedTopology: true},(err)=>{
@@ -26,7 +28,9 @@ mongoose.connect(process.env.URLDB, {useNewUrlParser: true, useUnifiedTopology: 
     
 })
 
-app.listen(process.env.PORT, () => {
+const server = http.createServer(app);
+
+server.listen(process.env.PORT, () => {
     console.log("escuchando puerto: ",process.env.PORT);
     
 })
