@@ -19,6 +19,9 @@ export let animeSchema = new Schema({
         type: String,
         required: true
     },
+    status: {
+        type: String
+    },
     episodios: [
         {
             temporada: {
