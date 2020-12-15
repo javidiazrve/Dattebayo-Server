@@ -20,12 +20,15 @@ export let animeSchema = new Schema({
         required: true
     },
     status: {
-        type: String
+        type: Boolean
     },
     temporadas: [
         {
             temporada: {
                 type: String
+            },
+            status: {
+                type: Boolean
             },
             episodios: [
                 {
