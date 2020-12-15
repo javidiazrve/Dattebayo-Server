@@ -91,8 +91,8 @@ app.put('/animes', (req,res) => {
 
         if(err) throw err;
 
-        res.updateOne(data, (err,res)=>{
-            res.json({
+        res.updateOne(data, (err,resp)=>{
+            resp.json({
                 ok:true,
                 res
             })
