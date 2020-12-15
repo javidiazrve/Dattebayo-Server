@@ -60,13 +60,9 @@ app.post('/animes', (req,res) => {
         descripcion: body.descripcion,
         fechaEstreno: body.fechaEstreno,
         poster: body.poster,
-        capitulos: []
-    })
-
-    console.log(anime);
-    
-    console.log(body);
-    
+        status: false,
+        temporadas: []
+    })   
 
     anime.save( (err,animeDB) => {
         if(err) {
