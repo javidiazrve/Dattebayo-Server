@@ -84,7 +84,7 @@ app.post('/animes', (req,res) => {
 
 });
 
-app.put('/animes', (req,reso)=>{
+app.put('/animes/episodio', (req,res)=>{
 
     let data = req.body;
 
@@ -92,13 +92,32 @@ app.put('/animes', (req,reso)=>{
         if(err) throw err;
         
         res.updateOne({$push: { episodios: data.episodio}}).then(res => {
-            reso.json({
+            res.json({
                 ok:true,
                 res
             });
         })    
     })
     
+
+})
+
+app.put('/animes', (req,res) => {
+
+    let data = req.body;
+
+    Anime.findById(data.id, (err,res)=>{
+
+        if(err) throw err;
+
+        res.updateOne(data, (err,res)=>{
+            res.json({
+                ok:true,
+                res
+            })
+        })
+
+    })
 
 })
 

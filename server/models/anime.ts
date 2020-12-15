@@ -22,31 +22,35 @@ export let animeSchema = new Schema({
     status: {
         type: String
     },
-    episodios: [
+    temporadas: [
         {
             temporada: {
                 type: String
             },
-            numero: {
-                type: String
-            },
-            nombre: {
-                type:String
-            },
-            sinopsis: {
-                type: String
-            },
-            duracion: {
-                type: String
-            },
-            poster: {
-                type: String
-            },
-            url: {
-                type: String
-            }
+            episodios: [
+                {
+                    numero: {
+                        type: String
+                    },
+                    nombre: {
+                        type:String
+                    },
+                    sinopsis: {
+                        type: String
+                    },
+                    duracion: {
+                        type: String
+                    },
+                    poster: {
+                        type: String
+                    },
+                    url: {
+                        type: String
+                    }
+                }
+            ]
         }
-    ]
+    ],
 });
 
 export const Anime = mongoose.model('Anime', animeSchema);
