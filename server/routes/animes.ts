@@ -84,6 +84,9 @@ app.put('/animes', (req,res) => {
 
     let data = req.body;
 
+    console.log(data);
+    
+
     Anime.findById(data._id, (err,res)=>{
 
         if(err) throw err;
