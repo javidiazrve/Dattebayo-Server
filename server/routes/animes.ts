@@ -80,29 +80,11 @@ app.post('/animes', (req,res) => {
 
 });
 
-app.put('/animes/episodio', (req,res)=>{
-
-    let data = req.body;
-
-    Anime.findById(data.id, (err, res)=>{
-        if(err) throw err;
-        
-        res.updateOne({$push: { episodios: data.episodio}}).then(res => {
-            res.json({
-                ok:true,
-                res
-            });
-        })    
-    })
-    
-
-})
-
 app.put('/animes', (req,res) => {
 
     let data = req.body;
 
-    Anime.findById(data.id, (err,res)=>{
+    Anime.findById(data._id, (err,res)=>{
 
         if(err) throw err;
 
