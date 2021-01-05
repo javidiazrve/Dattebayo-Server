@@ -50,7 +50,7 @@ export let animeSchema = new Schema({
                     duracion: {
                         type: String
                     },
-                    relleno: {
+                    tipo: {
                         type: Number
                     },
                     poster: {
