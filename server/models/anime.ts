@@ -19,6 +19,10 @@ export let animeSchema = new Schema({
         type: String,
         required: true
     },
+    fotoBackground: {
+        type: String,
+        required: true
+    },
     idioma: {
       type: String  
     },

@@ -1,12 +1,15 @@
 import { Mongoose } from "mongoose";
 import * as http from 'http';
+import { Server } from 'socket.io'
 
 require('./config/config');
 const express = require('express');
 const bodyparser = require('body-parser');
 const mongoose: Mongoose = require('mongoose');
+const app = express();    
+const cors = require('cors');
+const server = http.createServer(app);
 
-const app = express();
 
 app.use(bodyparser.urlencoded({extended: false}));
 app.use(bodyparser.json());
@@ -23,15 +26,12 @@ app.use(require('./routes/animes'));
 
 mongoose.connect(process.env.URLDB, {useNewUrlParser: true, useUnifiedTopology: true},(err)=>{
     if(err) throw err;
-
     console.log('conectado');
-    
 })
-
-const server = http.createServer(app);
 
 server.listen(process.env.PORT, () => {
-    console.log("escuchando puerto: ",process.env.PORT);
-    
+    console.log("escuchando puerto: ",process.env.PORT);  
 })
+
+
 

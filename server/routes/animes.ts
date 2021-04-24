@@ -9,8 +9,6 @@ const app = express();
 
 app.get('/animes', (req, res) => {
 
-    console.log('hizo get');
-
     Anime.find({}).exec((err, animes) => {
         if (err) throw err;
 
@@ -24,8 +22,6 @@ app.get('/animes', (req, res) => {
 app.get('/animes/:id', (req, res) => {
 
     const id = req.params.id;
-
-    console.log('hizo get id');
 
     Anime.findById(id, (err, anime) => {
 
