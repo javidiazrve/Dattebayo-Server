@@ -9,7 +9,7 @@ const app = express();
 
 app.get('/animes', (req, res) => {
 
-    Anime.find({}).exec((err, animes) => {
+    Anime.find({"status" : true}).exec((err, animes) => {
         if (err) throw err;
 
         res.json({
