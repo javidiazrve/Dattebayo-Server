@@ -1,6 +1,5 @@
 import { Mongoose } from "mongoose";
 import * as http from 'http';
-import { Server } from 'socket.io'
 
 require('./config/config');
 const express = require('express');
